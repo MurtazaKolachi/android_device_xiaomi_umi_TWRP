@@ -50,7 +50,8 @@ QCOM_BOARD_PLATFORMS += xiaomi_sm8250
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket reboot=panic_warm buildvariant=user
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_KERNEL_HEADER_VERSION := 2
+BOARD_BOOT_HEADER_VERSION := 2
+BOARD_KERNEL_HEADER_VERSION := $(BOARD_BOOT_HEADER_VERSION)
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE          := 0x00000000
@@ -128,7 +129,7 @@ BOARD_USES_METADATA_PARTITION := true
 ifdef DECRYPT_PLATFORM_VERSION
 PLATFORM_VERSION := $(DECRYPT_PLATFORM_VERSION)
 else
-PLATFORM_VERSION := 16.1.0
+PLATFORM_VERSION := 17.0.0
 endif
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 PLATFORM_SECURITY_PATCH := 2099-12-31
